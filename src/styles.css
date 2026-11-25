@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --animate-splash-draw: splash-draw 1.15s cubic-bezier(0.45, 0, 0.2, 1) forwards;
+  --animate-splash-image: splash-image 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  --animate-splash-shimmer: splash-shimmer 0.95s cubic-bezier(0.25, 0.8, 0.25, 1) 1.05s forwards;
+  --animate-splash-line: splash-line 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.22s forwards;
+  --animate-splash-subtitle: splash-subtitle 0.7s ease-out 1.38s forwards;
+
+  @keyframes splash-draw {
+    0% { stroke-dashoffset: 100; opacity: .2; }
+    15% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+  @keyframes splash-image {
+    from { opacity: 0; transform: translateY(12px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes splash-shimmer {
+    0% { transform: translateX(-150%) skewX(-22deg); opacity: 0; }
+    20%, 80% { opacity: 1; }
+    100% { transform: translateX(220%) skewX(-22deg); opacity: 0; }
+  }
+  @keyframes splash-line {
+    from { transform: scaleX(0); opacity: 0; }
+    to { transform: scaleX(1); opacity: 1; }
+  }
+  @keyframes splash-subtitle {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background: #f5f1e8;
+    color: #28352c;
+  }
+
+  * { box-sizing: border-box; }
+  body { min-width: 320px; min-height: 100vh; margin: 0; background: #f5f1e8; }
+  button, input { font: inherit; }
+}
